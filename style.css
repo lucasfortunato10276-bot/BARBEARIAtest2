@@ -1,0 +1,400 @@
+:root {
+    --primary: #ffffff;
+    --accent: #d4af37; /* Dourado Premium */
+    --whatsapp: #25d366;
+    --bg-black: #050505;
+    --bg-grey: #0f0f0f;
+    --text-muted: #a0a0a0;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background: var(--bg-black); color: var(--primary); overflow-x: hidden; line-height: 1.6; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+.section-padding { padding: 120px 0; }
+.text-center { text-align: center; }
+.bg-darker { background: var(--bg-grey); }
+
+/* --- Barber Pole Background Suave --- */
+.bg-pole {
+    position: relative;
+}
+.bg-pole::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2303/2303914.png');
+    background-size: 200px;
+    opacity: 0.02;
+    pointer-events: none;
+}
+
+/* --- Header & Navbar --- */
+header {
+    position: fixed; width: 100%; z-index: 1000;
+    padding: 20px 0; background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 800; font-size: 1.6rem; letter-spacing: 2px; }
+.logo span { color: var(--accent); }
+.nav-menu { display: flex; gap: 30px; list-style: none; }
+.nav-menu a { text-decoration: none; color: #fff; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+.nav-menu a:hover { color: var(--accent); }
+.menu-toggle { display: none; color: var(--accent); font-size: 1.5rem; }
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1474');
+    background-size: cover; background-position: center;
+}
+.tag { color: var(--accent); letter-spacing: 4px; font-size: 0.8rem; font-weight: 700; }
+.hero h1 { font-size: 4.5rem; font-weight: 800; margin: 15px 0; line-height: 1.1; }
+.hero h1 span { color: var(--accent); -webkit-text-stroke: 1px var(--accent); color: transparent; }
+.btn-main {
+    display: inline-block; margin-top: 35px; padding: 18px 45px;
+    background: var(--accent); color: #000; font-weight: 800;
+    text-decoration: none; border-radius: 4px; transition: var(--transition);
+}
+.btn-main:hover { transform: scale(1.05); background: #fff; }
+
+/* --- Títulos Estilizados --- */
+.title-decor { font-size: 3rem; margin-bottom: 40px; font-weight: 800; }
+.title-decor span { color: var(--accent); }
+
+/* --- Ziguezague --- */
+.zig-zag { display: flex; align-items: center; gap: 80px; }
+.zig-zag.reverse { flex-direction: row-reverse; }
+.img-box, .text-box { flex: 1; }
+.img-box img { width: 100%; border-radius: 4px; border: 1px solid #222; transition: 0.5s; }
+.img-box img:hover { border-color: var(--accent); filter: grayscale(0%); }
+
+/* --- Nossos Cortes (Design de Catálogo) --- */
+.grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 60px; }
+.service-item { background: #111; border-radius: 8px; overflow: hidden; transition: var(--transition); }
+.service-img { position: relative; height: 300px; }
+.service-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+.service-price { 
+    position: absolute; top: 20px; right: 20px; background: var(--accent); 
+    color: #000; padding: 5px 15px; font-weight: 800; border-radius: 20px; 
+}
+.service-details { padding: 30px; }
+.service-details h3 { margin-bottom: 10px; font-size: 1.4rem; }
+.service-details p { color: var(--text-muted); font-size: 0.95rem; }
+.service-item:hover { transform: translateY(-10px); }
+.service-item:hover img { filter: grayscale(0%); }
+
+/* --- Seção Ambiente Icons --- */
+.features-icons { display: flex; gap: 20px; margin-top: 30px; }
+.features-icons span { font-size: 0.8rem; background: #1a1a1a; padding: 8px 15px; border-radius: 4px; border: 1px solid #333; }
+.features-icons i { color: var(--accent); margin-right: 8px; }
+
+/* --- Depoimentos --- */
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.testimonial-card { background: #111; padding: 40px; border-radius: 10px; position: relative; }
+.stars { color: var(--accent); margin-bottom: 20px; }
+.profile { display: flex; align-items: center; gap: 15px; margin-top: 25px; }
+.profile img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--accent); }
+
+/* --- Fale Conosco & WhatsApp --- */
+.contact-wrapper { background: #111; padding: 60px; border-radius: 15px; border-left: 5px solid var(--accent); }
+.contact-buttons { display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
+.btn-whatsapp { 
+    background: var(--whatsapp); color: #fff; padding: 15px 35px; 
+    text-decoration: none; font-weight: 700; border-radius: 5px; 
+    display: flex; align-items: center; gap: 10px; transition: 0.3s;
+    animation: pulse-green 2s infinite;
+}
+.btn-insta-alt { 
+    border: 1px solid #fff; color: #fff; padding: 15px 35px; 
+    text-decoration: none; font-weight: 700; border-radius: 5px; transition: 0.3s;
+}
+.btn-insta-alt:hover { background: #fff; color: #000; }
+
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* --- Animações Scroll --- */
+.reveal, .reveal-left, .reveal-right { opacity: 0; transition: 1s all ease; }
+.reveal { transform: translateY(50px); }
+.reveal-left { transform: translateX(-100px); }
+.reveal-right { transform: translateX(100px); }
+.active { opacity: 1; transform: translate(0); }
+
+/* --- Mobile Responsividade --- */
+@media (max-width: 900px) {
+    .hero h1 { font-size: 3rem; }
+    .zig-zag, .zig-zag.reverse { flex-direction: column; text-align: center; gap: 40px; }
+    .menu-toggle { display: block; }
+    .nav-menu {
+        position: fixed; left: -100%; top: 70px; flex-direction: column;
+        background: #000; width: 100%; height: 100vh; padding: 50px; transition: 0.5s;
+    }
+    .nav-menu.active { left: 0; }
+    .title-decor { font-size: 2.2rem; }
+}
+/* --- Classe de Fundo com Barber Pole --- */
+/* --- FUNDO BARBER POLE (INFALÍVEL) --- */
+.bg-pole {
+    position: relative;
+    background-color: #050505;
+    overflow: hidden;
+}
+
+.bg-pole::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Criando o padrão de Barber Pole via código SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M30 0 L70 0 L40 100 L0 100 Z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");
+    background-size: 100px 100px; /* Tamanho das listras */
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Garante que o conteúdo fique por cima */
+.bg-pole .container {
+    position: relative;
+    z-index: 1;
+}
+
+.bg-pole::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Imagem do Barber Pole repetida */
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2303/2303914.png');
+    background-size: 150px; /* Tamanho do ícone */
+    background-repeat: repeat;
+    opacity: 0.04; /* Opacidade bem baixa para ficar premium */
+    pointer-events: none; /* Não interfere nos cliques do usuário */
+    z-index: 0;
+}
+
+/* Garante que o conteúdo da seção fique ACIMA do fundo */
+.bg-pole .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Ajuste na seção de Cortes para destacar os Barber Poles --- */
+.grid-services {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Ajuste no Contato para também ter o fundo --- */
+#contato.bg-pole::before {
+    opacity: 0.06; /* Um pouquinho mais forte no contato para dar presença */
+    background-size: 120px;
+}
+/* --- FOOTER PREMIUM --- */
+.footer {
+    padding: 80px 0 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #080808;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-col h3 {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-desc {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 20px 0;
+    max-width: 300px;
+}
+
+/* Redes Sociais */
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    background: #111;
+    border: 1px solid #222;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-social a:hover {
+    background: var(--accent);
+    color: #000;
+    transform: translateY(-5px);
+}
+
+/* Links e Listas */
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent);
+    padding-left: 5px;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.contact-list i {
+    color: var(--accent);
+    width: 20px;
+}
+
+/* Rodapé Final (Copyright) */
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.footer-bottom strong {
+    color: var(--accent);
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .footer {
+        padding: 60px 0 20px;
+        text-align: center;
+    }
+    .footer-content {
+        gap: 40px;
+    }
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-social {
+        justify-content: center;
+    }
+}
+/* --- ANIMAÇÃO BARBER POLE INFINITA --- */
+.bg-animated-pole {
+    position: relative;
+    overflow: hidden;
+    background-color: #050505;
+}
+
+.bg-animated-pole::before {
+    content: "";
+    position: absolute;
+    top: -50%; /* Overlap para não mostrar cortes na animação */
+    left: 0;
+    width: 100%;
+    height: 200%; 
+    /* SVG de listras brancas inclinadas */
+    background-image: url("clipart2601591.png");
+    background-size: 100px 100px;
+    
+    /* A mágica acontece aqui: animação infinita */
+    animation: barberScroll 15s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes barberScroll {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100px); /* Move exatamente o tamanho do padrão para ser contínuo */
+    }
+}
+
+/* Garante que o conteúdo fique legível acima do fundo animado */
+.bg-animated-pole .container {
+    position: relative;
+    z-index: 1;
+}
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Isso aqui mata o scroll lateral e o zoom estranho */
+    position: relative;
+}
+
+/* Ajuste específico para a seção inicial (Hero) */
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px; /* Garante que o texto não cole nas bordas */
+    box-sizing: border-box;
+}
+
+.hero-content {
+    max-width: 100%; /* Impede que o conteúdo empurre a tela */
+}
+
+/* Ajuste nos títulos gigantes para não quebrarem no celular */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.8rem !important; /* Diminui o título para caber sem zoom */
+        word-wrap: break-word;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+}
